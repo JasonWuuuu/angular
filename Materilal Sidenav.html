@@ -1,0 +1,60 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" href="https://ajax.googleapis.com/ajax/libs/angular_material/1.1.0/angular-material.min.css">
+    <title>Material Sidenav</title>
+
+</head>
+
+<body ng-app="sidenavDemo1">
+<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.5/angular.min.js"></script>
+<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.5/angular-animate.min.js"></script>
+<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.5/angular-aria.min.js"></script>
+<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.5/angular-messages.min.js"></script>
+
+<!-- Angular Material Library -->
+<script src="https://ajax.googleapis.com/ajax/libs/angular_material/1.1.0/angular-material.min.js"></script>
+<div ng-controller="AppCtrl" layout="column" style="height:500px;" ng-cloak>
+
+
+
+        <md-sidenav class="md-sidenav-left" md-component-id="left" md-whiteframe="4">
+            <p>侧边栏不需要另外的容器</p>
+
+        </md-sidenav>
+
+
+        <md-button ng-click="toggleLeft()"
+                   class="md-primary" hide-gt-md>
+            Toggle left
+        </md-button>
+
+
+</div>
+
+<script>
+    angular
+        .module('sidenavDemo1', ['ngMaterial'])
+        .controller('AppCtrl', function ($scope, $timeout, $mdSidenav, $log) {
+            $scope.toggleLeft = buildDelayedToggler('left');
+            /*闭包使用场景之一：需要给在将来执行的服务传参，直接传参会马上执行。定时器中需要传参也是这样用*/
+            function buildDelayedToggler(navID) {
+                return function () {
+                    // Component lookup should always be available since we are not using `ng-if`
+                    $mdSidenav(navID)
+                        .toggle();
+
+                }
+            }
+
+
+        });
+
+
+</script>
+</body>
+</html>
