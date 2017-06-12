@@ -1,0 +1,38 @@
+<md-content class="login-box" layout-align="center center" ng-controller="loginCtrl">
+    <form action="" name="loginForm">
+        <!--表单数据被angular存到用name属性命名的对象中去-->
+        <section layout="column">
+            <md-input-container>
+                <label for="">用户名</label>
+                <input type="text" required ng-model="login.loginname" ng-maxlength="20" ng-minlength="3"
+                       name="loginName">
+                <div ng-messages="loginForm.loginName.$error">
+                    <div ng-message="pattern">用户名只支持数据、字母、下划线</div>
+                    <div ng-message="maxlength">最大长度20个字符</div>
+                    <div ng-message="minlength">最小长度3个字符</div>
+                </div>
+            </md-input-container>
+            <md-input-container>
+                <label>密码</label>
+                <input type="password" ng-model="login.password" ng-maxlength="20" ng-minlength="3"
+                       name="loginPassword" required=>
+                <div ng-messages="loginForm.loginPassword.$error">
+                    <div ng-message="pattern">用户名只支持数据、字母、下划线</div>
+                    <div ng-message="maxlength">最大长度20个字符</div>
+                    <div ng-message="minlength">最小长度3个字符</div>
+                </div>
+            </md-input-container>
+            <p ng-bind="login.errorInfo"></p>
+            <!--ng-max-length等是message的指令-->
+            <md-button class="md-raised md-primary " ng-disabled="!loginForm.$valid" ng-if="!login.loging"
+                       ng-click="login.access()" type="submit">
+                登 录
+            </md-button>
+        </section>
+        <section layout="row" layout-align="center">
+            <md-progress-circular ng-if="login.loging" class="md-warn md-hue-3"></md-progress-circular>
+        </section>
+
+
+    </form>
+</md-content>

@@ -1,0 +1,185 @@
+body {
+    font-family: "Microsoft Yahei", "微软雅黑", Tahoma, Arial, Simhei, STXihei, "华文细黑", sans-serif;
+    color: #333;
+    font-size: 13px;
+}
+
+html, ul, li, body, h1, h2, h3, h4, h5, h6 {
+    margin: 0;
+    padding: 0;
+}
+
+ul {
+    list-style: none;
+}
+
+.ad_main {
+    position: relative;
+}
+
+.top {
+    height: 45px;
+    background: #0666c5;
+    background-color: #0767c8;
+    background-image: -webkit-gradient(linear, 0 0, 0 100%, from(#086ed5), to(#055db5));
+    background-image: -webkit-linear-gradient(top, #086ed5, #055db5);
+    background-image: -o-linear-gradient(top, #086ed5, #055db5);
+    background-image: linear-gradient(top, #086ed5, #055db5);
+    background-repeat: repeat-x;
+    border-bottom: 1px solid #044e97;
+    box-shadow: 0 1px 2px rgba(0, 0, 0, .25), inset 0 1px 0 rgba(255, 255, 255, .15);
+}
+
+.top a {
+    color: #fff;
+    text-decoration: none;
+    padding: 10px 25px;
+    display: block;
+    border-left: 1px solid #055db5;
+    border-right: 1px solid #055db5;
+    font-family: "Microsoft Yahei";
+    position: relative;
+    margin-right: -1px;
+    font-size: 15px;
+}
+
+.top ul a.ad_active {
+    background-color: #055db5;
+}
+
+.top ul {
+    padding: 0;
+    margin: 0;
+    list-style-type: none;
+    overflow-x: auto;
+    margin-left: 360px;
+}
+
+.top ul li {
+    float: left;
+
+}
+
+.sidenav {
+    width: 360px;
+    position: absolute;
+    top: 45px;
+    bottom: 0px;
+    border-right: 1px solid #ccc;
+}
+
+.ad_pmain {
+    position: absolute;
+    right: 0px;
+    left: 362px;
+    top: 45px;
+    bottom: 0px;
+    overflow-y: auto;
+}
+
+.ad_button {
+    display: inline-block;
+    width: 100px;
+    border: 0px solid red;
+    text-align: center;
+    position: relative;
+    margin: 0;
+    padding: 0;
+    height: 100%;
+}
+
+/*.ad_button label {
+    display: block;
+    font-size: 13px;
+    color: #888;
+    text-align: center;
+}*/
+
+a.md-button.md-primary.md-raised, .md-button.md-primary.md-raised, .md-button.md-primary.md-fab {
+    background: rgba(7, 103, 200, .7);
+}
+
+.ad_progress_wrap {
+    position: relative;
+    top: -10px;
+    margin: 0px 10px;
+}
+
+a {
+    text-decoration: none;
+}
+
+/*md-datepicker reset*/
+
+.md-datepicker-input-mask{
+    height: 30px;
+    width: 250px;
+}
+.md-calendar-month-label {
+    height: 24px;
+    font-size: 13px;
+    padding: 0 0 0 14px;
+}
+.md-calendar-date{
+    height: 34px;
+    width: 34px;
+}
+.md-calendar-date-selection-indicator{
+    width: 34px;
+    height: 34px;
+    line-height: 34px;
+}
+.md-calendar-day-header th{
+    width:34px;
+    height:30px;
+}
+.md-calendar-scroll-mask{
+    height: 208px;
+}
+.md-datepicker-input{
+    font-family:"Microsoft Yahei";
+    font-size:13px;
+}
+/*md-datepicker reset end*/
+
+/* 顶部 menu 按钮 */
+md-list md-list-item button.md-button:hover:not([disabled]){
+    background-color:rgb(63,81,181);
+}
+
+input ,textarea{
+    font-family: "Microsoft Yahei" , Airal;
+}
+
+/*md-toolbar:not(.md-menu-toolbar) {
+    background-color: rgba(63, 81, 181, 0.8);
+    color: rgba(255, 255, 255, 0.97);
+}
+.md-toolbar-tools{
+    font-size:18px;
+    height:46px;
+}
+*/
+
+
+.task-list-line .md-caption{
+    text-indent: 20px;
+    font-size:16px;
+    letter-spacing: 0.03em;
+}
+.task-list-line .md-subhead,#taskdetail_panel .md-subhead{
+    font-size:18px;
+    font-weight:600;
+    color:#666;
+}
+#taskdetail_panel .md-caption{
+    text-indent: 45px;
+    font-size:16px;
+    letter-spacing: 0.03em;
+}
+#taskdetail_panel .topic-list-line>div{
+    margin-left:30px;
+}
+#taskdetail_panel md-list-item{
+    min-height:55px;
+}

@@ -1,0 +1,135 @@
+<style>
+    a {
+        text-decoration: none;
+    }
+
+    .project-manage {
+        background: rgb(81, 148, 216);
+        color: rgb(232, 241, 250);
+        padding-left: 100px;
+        height: 60px;
+        font-weight: normal;
+        font-size: 20px;
+        line-height: 60px;
+    }
+
+    .new-project {
+        display: block;
+        margin-top: -50px;
+    }
+
+    #project-nav {
+        width: 80%;
+    }
+
+    .md-table {
+        min-width: 100%;
+        border-collapse: collapse;
+        padding-left: 100px;
+    }
+
+    .md-table-header {
+        border-bottom: 1px solid rgb(230, 230, 230);
+        color: rgb(130, 130, 130);
+        text-align: center;
+        font-size: 0.75em;
+        font-weight: 700;
+        padding: 16px 16px 16px 32px;
+    }
+
+    .md-table-header a {
+        text-decoration: none;
+        color: inherit;
+    }
+
+    .md-table td, .md-table tr {
+        text-align: center;
+    }
+
+    .md-table-footer {
+        min-width: 600px;
+        color: rgb(85, 26, 139);
+        line-height: 48px;
+        font-size: 10px;
+    }
+
+    .md-table-footer a {
+        width: 50px;
+        height: 48px;
+        display: inline-block;
+        line-height: 48px;
+        margin-left: 20px;
+    }
+</style>
+<md-content layout="column" class="project-manage">
+    <span>项目管理</span>
+</md-content>
+<div ng-controller="projectController">
+    <div layout="column">
+        <md-button class="md-fab md-accent" aria-label="搜索" ng-click="showNavList()" class="new-project">
+
+            新建
+        </md-button>
+        <section layout="row" flex>
+            <md-sidenav class=" site-sidenav md-sidenav-right md-whiteframe-z2 " id="project-nav"
+                        md-component-id="project-nav">
+                <form name="newProject">
+                    <section layout="column">
+                        <md-input-container>
+                            <label>行业类型</label>
+                            <input type="text" name="industry" ng-model="project.industry" required>
+                        </md-input-container>
+                        <label>项目类型</label>
+                        <md-select ng-model="project.selectedProgramType">
+                            <md-option ng-repeat="i in choices.programTypes">{{i.name}}</md-option>
+                        </md-select>
+
+
+                        <md-input-container>
+                            <label>项目名称</label>
+                            <input type="text" ng-model="project.name" required>
+                        </md-input-container>
+
+
+                        <button ng-click="saveNewProject();" ng-disabled="newProject.$invalid">保存</button>
+                    </section>
+
+                </form>
+
+            </md-sidenav>
+        </section>
+    </div>
+    <div id="project-table">
+        <table class="md-table">
+            <thead>
+            <tr class="md-table-headers-row">
+                <th class="md-table-header" ng-repeat='h in headers'>
+                    <a href='#'>
+                        {{h.name}}
+
+                    </a>
+                </th>
+            </tr>
+
+            </thead>
+            <tbody>
+            <tr class="md-table-content-row" ng-repeat=" i in pageNow=(allProject|pageDisplay:pageindex:pageSize)">
+                <td>{{i.name}}</td>
+                <td>{{i.startTime}}</td>
+                <td>{{i.sinceStart}}</td>
+            </tr>
+            </tbody>
+        </table>
+        <div layout="row" class="md-table-footer">
+            <span>每页行数</span>
+            <a href="" ng-click="sizeSwitch(5);">5 |</a>
+            <a href="" ng-click="sizeSwitch(10);">10 |</a>
+            <a href="" ng-click="sizeSwitch(20);">20 |</a>
+            <a href="" ng-click="sizeSwitch(50);">50 |</a>
+            <a href="" ng-click="pageSwitch(0);">上页</a>
+            <a href="">第{{pageindex+1}}页</a>
+            <a href="" ng-click="pageSwitch(1);"> 下页</a>
+            <span>共{{pageNum }}页</span>
+        </div>
+    </div>
+</div>

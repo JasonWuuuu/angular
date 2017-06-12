@@ -1,0 +1,12 @@
+#mainNav {
+    background: rgb(63, 81, 181);
+    color: rgb(230, 230, 245);
+    height: 55px;
+}
+
+.login-box {
+    width: 400px;
+    margin: 100px auto 0;
+    height: 400px;
+    font-size: 150%;
+}
