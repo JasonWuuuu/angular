@@ -1,6 +1,6 @@
 var app = angular.module('demo', ['ngMaterial', 'ngMessages', 'ui.router']);
 app.config(["$stateProvider", "$urlRouterProvider", "$locationProvider", function ($stateProvider, $urlRouterProvider, $locationProvider) {
-    //locationProvider并没有用到？？作用是什么
+
     $urlRouterProvider.otherwise("/login");
     $stateProvider//配置不同哈希值切换的部分页面
         .state('main', {
